@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int num1 = 20;
+    int num2 = 20;
+
+    int total = num1 + num2;
+    int product = num1 * num2;
+    int diff = num1 - num2;
+    int quo = num1 / num2;
+    int mod = num1 % num2;
+
+    var name = "Carlos Vega";
+    DateTime BirthDay = DateTime.Parse("06/06/2002");
+    var age = 21;
+    var gender = "Mr.";
+    var date = DateTime.Now.Subtract(BirthDay).Days;
+
+}
+<h2>Welcome Student View</h2>
+
+
+<h2>I am @gender @name and I am @date years old</h2>
+
+<table class="table table-dark">
+    <tr>
+        <td>Sum</td>
+        <td>@total</td>
+    </tr>
+    <tr>
+        <td>Minus</td>
+        <td>@diff</td>
+    </tr>
+    <tr>
+        <td>Quotient</td>
+        <td>@quo</td>
+    </tr>
+    <tr>
+        <td>Product</td>
+        <td>@product</td>
+    </tr>
+    <tr>
+        <td>Modulus</td>
+        <td>@mod</td>
+    </tr>
+</table>

@@ -1,0 +1,113 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var FirstName = "Carlos";
+    var LastName = "Vega";
+    DateTime BirthDate = DateTime.Parse("06/06/2002");
+    var Birthday = DateTime.Now.Subtract(BirthDate).Days / 365;
+    bool isTenured = false;
+    var SalaryPerHour = 8.00;
+    var Email = "carlosvincent.vega.cics@ust.edu.ph";
+
+    string[] l = Email.Split(new char[] { '@' });
+    
+    var name = "Gabriel Montano";
+    var email = "gdmontano@ust.edu.ph";
+
+    var status = isTenured ? "Permanent" : "Probationary";
+    double salaryPerDay = SalaryPerHour * 8;
+    double salaryPerMonth = salaryPerDay * 30;
+
+    if (isTenured)
+    {
+        salaryPerMonth += 500;
+        status = "Permanent";
+    }
+
+    var Name = "Carlos Vega";
+    var PrelimGrade = 99;
+    var FinalGrade = 99;
+    var SemGrade = (PrelimGrade + FinalGrade) / 2;
+    var TransmutedGrade = 0.00;
+    if (SemGrade >= 96)
+    {
+        TransmutedGrade = 1.00;
+    }
+    else if (SemGrade >= 94 && SemGrade < 96)
+    {
+        TransmutedGrade = 1.25;
+    }
+    else if (SemGrade >= 92 && SemGrade < 94)
+    {
+        TransmutedGrade = 1.50;
+    }
+    else if (SemGrade >= 89 && SemGrade < 92)
+    {
+        TransmutedGrade = 1.75;
+    }
+    else if (SemGrade >= 87 && SemGrade < 89)
+    {
+        TransmutedGrade = 2.00;
+    }
+    else if (SemGrade >= 84 && SemGrade < 87)
+    {
+        TransmutedGrade = 2.25;
+    }
+    else if (SemGrade >= 82 && SemGrade < 84)
+    {
+        TransmutedGrade = 2.50;
+    }
+    else if (SemGrade >= 79 && SemGrade < 82)
+    {
+        TransmutedGrade = 2.75;
+    }
+    else if (SemGrade >= 75 && SemGrade < 79)
+    {
+        TransmutedGrade = 3.00;
+    }
+    else if (SemGrade < 75)
+    {
+        TransmutedGrade = 5.00;
+    }
+}
+<h3>Output A</h3>
+<h2>I'm @FirstName @LastName and I'm @Birthday years old</h2><br />
+
+<h3>Output B</h3>
+<h2>Email: @Email</h2>
+<h2>Domain: @l[1]</h2>
+<h2>Username: @l[0]</h2>
+<br />
+
+
+<h3>Output C</h3>
+<h2>Name: @name</h2>
+<h2>email: @email</h2>
+<h2>Status: @status</h2>
+<h2>Daily Salary: ₱@salaryPerDay</h2>
+<h2>Monthly Salary: ₱@salaryPerMonth</h2>
+<br />
+<h3>Output D</h3>
+<table class="table table-dark">
+    <tr>
+        <td>Name:</td>
+        <td>@Name</td>
+    </tr>
+    <tr>
+        <td>Prelim</td>
+        <td>@PrelimGrade</td>
+    </tr>
+    <tr>
+        <td>Final</td>
+        <td>@FinalGrade</td>
+    </tr>
+    <tr>
+        <td>Semestral Grade</td>
+        <td>@SemGrade</td>
+    </tr>
+    <tr>
+        <td>Transmuted Grade</td>
+        <td>@TransmutedGrade</td>
+    </tr>
+    </table>
