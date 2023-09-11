@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<VegaITELEC1C.Models.Instructor>
+    <h1>Instructors List</h1>
+
+    <table>
+        <tr>
+        <td>Name</td>
+
+        <td>Tenure</td>
+
+        <td>Rank</td>
+
+        <td>Hiring Date</td>
+
+        <td>Details</td>
+
+        </tr>
+
+    @foreach(var instructor in Model)
+    {
+        <tr>
+            <td>@instructor.FirstName @instructor.LastName</td>
+
+            <td>@instructor.isTenured</td>
+
+            <td>@instructor.Rank</td>
+
+            <td>@instructor.HiringDate</td>
+
+            <td><a asp-action="ShowDetail" asp-route-id="@instructor.Id">Show Details</a></td>
+        </tr>
+    }
+
+    </table>
