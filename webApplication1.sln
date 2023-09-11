@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webApplication1", "webApplication1\webApplication1.csproj", "{726EFE2F-A9E6-4495-BA79-0520FCC91112}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webApplication1", "webApplication1\webApplication1.csproj", "{726EFE2F-A9E6-4495-BA79-0520FCC91112}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LabActivity1", "LabActivity1", "{C2CDCACF-8871-4549-8DFB-224B927B29AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VegaITELEC1C", "..\VegaITELEC1C\VegaITELEC1C\VegaITELEC1C.csproj", "{86120501-3A39-4EAB-9691-76343E7D455C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{726EFE2F-A9E6-4495-BA79-0520FCC91112}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{726EFE2F-A9E6-4495-BA79-0520FCC91112}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{726EFE2F-A9E6-4495-BA79-0520FCC91112}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86120501-3A39-4EAB-9691-76343E7D455C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86120501-3A39-4EAB-9691-76343E7D455C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86120501-3A39-4EAB-9691-76343E7D455C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86120501-3A39-4EAB-9691-76343E7D455C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86120501-3A39-4EAB-9691-76343E7D455C} = {C2CDCACF-8871-4549-8DFB-224B927B29AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17C30FB6-577E-472A-93DE-50C5DFF62ADA}
