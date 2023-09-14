@@ -24,6 +24,8 @@ namespace VegaITELEC1C.Controllers
                     Id= 3 ,FirstName = "Carlos", LastName = "Vega", isTenured = false , Rank = Rank.AssociateProfessor, HiringDate = DateTime.Parse("2020-01-25")
                 }
             };
+
+       
         public IActionResult Index()
         {
             
@@ -39,6 +41,18 @@ namespace VegaITELEC1C.Controllers
                 return View(instructor);
 
             return NotFound();
+        }
+        [HttpGet]
+        public IActionResult AddInstructor()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddInstructor(Instructor newInstructor)
+        {
+            InstructorList.Add(newInstructor);
+            return View("Index", InstructorList);
         }
 
     }
