@@ -54,7 +54,35 @@ namespace VegaITELEC1C.Controllers
             InstructorList.Add(newInstructor);
             return View("Index", InstructorList);
         }
+        [HttpGet]
+        public IActionResult UpdateInstructor(int id)
+        {
 
+            Instructor? instructor = InstructorList.FirstOrDefault(st => st.Id == id);
+
+            if (instructor != null)
+                return View(instructor);
+
+            return NotFound();
+
+        }
+        [HttpPost]
+        public IActionResult UpdateInstructor(Instructor InstructorChanges)
+        {
+            Instructor? instructor = InstructorList.FirstOrDefault(st => st.Id == InstructorChanges.Id);
+
+            if (instructor != null)
+            {
+                instructor.FirstName = InstructorChanges.FirstName;
+                instructor.LastName = InstructorChanges.LastName;
+                instructor.HiringDate = InstructorChanges.HiringDate;
+                instructor.Rank = InstructorChanges.Rank;
+                instructor.isTenured = InstructorChanges.isTenured;
+            }
+
+            return View("Index", InstructorList);
+        }
+        
     }
 
 }
