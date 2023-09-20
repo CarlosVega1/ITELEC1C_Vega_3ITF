@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Student;
+<h1>Create a new Student</h1>
+
+<form asp-action="UpdateStudent" asp-controller="Student" method="post">
+    <div class="form-group">
+        <label asp-for="Id" hidden>Id</label>
+        <input class="form-control" asp-for="Id" hidden placeholder="Enter Id">
+    </div><br />
+
+    <div class="form-group">
+        <label asp-for="FirstName">First Name</label>
+        <input asp-for="FirstName" class="form-control">
+    </div><br />
+
+    <div class="form-group">
+        <label asp-for="LastName">Last Name</label>
+        <input asp-for="LastName" class="form-control">
+    </div><br />
+
+    <div class="form-group">
+        <label asp-for="IsRegular">Status</label>
+        <select asp-for="IsRegular" asp-items="@Html.GetEnumSelectList(typeof(IsRegular))"></select>
+    </div><br />
+
+    <div class="form-group">
+        <label asp-for="Course">Course</label>
+        <select asp-for="Course" asp-items="@Html.GetEnumSelectList(typeof(Course))"></select>
+    </div><br />
+
+    <div class="form-group">
+        <label asp-for="AdmissionDate">Date Enrolled</label>
+        <input class="form-control" asp-for="AdmissionDate">
+    </div><br />
+
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input class="form-control" asp-for="Email" placeholder="Enter Email">
+    </div><br />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" onclick="history.back" class="btn btn-secondary">Cancel</button>
+</form>

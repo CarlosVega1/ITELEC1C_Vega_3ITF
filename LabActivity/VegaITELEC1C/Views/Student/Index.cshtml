@@ -1,32 +1,35 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-  <h1>Student Details</h1>
-  <table>
-  <tr>
-    <td>ID</td>
-    <td>@ViewBag.student.StudentName</td>
-  </tr>
+﻿@model IEnumerable<Student>;
 
-  <tr>
-  <td>Name</td>
-  <td>@ViewBag.student.StudentName</td>
-  </tr>
+<div><h1>Student List</h1></div>
+<br />
 
-  <tr>
-  <td>Date Enrolled </td>
-  <td> @ViewBag.student.DateEnrolled</td>
-  </tr>
 
-  <tr>
-  <td>Course</td>
-  <td>@ViewBag.student.Course</td>
-  </tr>
+<a class="btn btn-primary" asp-action="AddStudent">Add Student</a>
 
-  <tr>
-  <tr>Email</tr>
-  <tr>@ViewBag.student.Email</tr>
-  </tr>
-  </table>
-}
+<table class="table table-light">
+
+    <tr>
+        <th colspan="7">Student</th>
+    </tr>
+
+    <tr>
+        <td>Name</td>
+        <td>Status</td>
+        <td>Course</td>
+        <td>Admission Date</td>
+        <td>Details</td>
+        <td>Update</td>
+
+    </tr>
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.FirstName @student.LastName</td>
+            <td>@student.IsRegular</td>
+            <td>@student.Course</td>
+            <td>@student.AdmissionDate</td>
+            <td><a asp-action="ShowDetail" asp-route-id="@student.Id" class="btn btn-primary">Show Details</a></td>
+            <td><a asp-action="UpdateStudent" asp-route-id="@student.Id" class="btn btn-primary">Update</a></td>
+        </tr>
+    }
+</table>

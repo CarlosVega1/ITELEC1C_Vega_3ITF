@@ -21,7 +21,7 @@
 
     <div class="form-group">
         <label asp-for="Rank">Rank</label>
-        <select asp-for="Rank">< asp-items="@Html.GetEnumSelectList(typeof(Rank))"></></select>
+        <select asp-for="Rank" asp-items="@Html.GetEnumSelectList(typeof(Rank))" class="form-control"></select>
     </div>
 
     <div class="form-group">
