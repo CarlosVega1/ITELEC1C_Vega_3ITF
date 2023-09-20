@@ -9,11 +9,11 @@ namespace VegaITELEC1C.Controllers
             {
                 new Instructor()
                 {
-                    Id= 1 , FirstName = "Gabriel", LastName = "Montano", isTenured = true, Rank = Rank.Instructor, HiringDate = DateTime.Parse("2022-08-26")
+                    Id= 1 , FirstName = "Gabriel", LastName = "Montano", isTenured = true, Rank = Rank.Professor, HiringDate = DateTime.Parse("2022-08-26")
                 },
                 new Instructor()
                 {
-                    Id= 4 ,FirstName = "Shadow", LastName = "Garden", isTenured = true, Rank = Rank.Professor, HiringDate = DateTime.Parse("2022-1-25")
+                    Id= 4 ,FirstName = "Shadow", LastName = "Garden", isTenured = false, Rank = Rank.Instructor, HiringDate = DateTime.Parse("2022-1-25")
                 },
                 new Instructor()
                 {
