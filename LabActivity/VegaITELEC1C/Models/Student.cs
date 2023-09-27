@@ -9,6 +9,8 @@
         BSIT, BSCS, BSIS, OTHER
     }
 
+   
+
     public class Student
     {
 
@@ -18,6 +20,7 @@
         public IsRegular IsRegular { get; set; }
         public Course Course { get; set; }
         public DateTime AdmissionDate { get; set; }
+       
         public string Email { get; set; }
 
     }

@@ -17,8 +17,10 @@
         <td>Status</td>
         <td>Course</td>
         <td>Admission Date</td>
+        
         <td>Details</td>
         <td>Update</td>
+        <th>Delete</th>
 
     </tr>
     @foreach (var student in Model)
@@ -28,8 +30,10 @@
             <td>@student.IsRegular</td>
             <td>@student.Course</td>
             <td>@student.AdmissionDate</td>
+            
             <td><a asp-action="ShowDetail" asp-route-id="@student.Id" class="btn btn-primary">Show Details</a></td>
             <td><a asp-action="UpdateStudent" asp-route-id="@student.Id" class="btn btn-primary">Update</a></td>
+            <td><a asp-action="DeleteStudent" asp-route-id="@student.Id" class="btn btn-danger">Delete</a></td>
         </tr>
     }
 </table>
