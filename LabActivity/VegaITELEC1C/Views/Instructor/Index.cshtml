@@ -21,6 +21,8 @@
 
         <td>Update</td>
 
+        <th>Delete</th>
+
         </tr>
 
     @foreach(var instructor in Model)
@@ -36,6 +38,7 @@
 
             <td><a asp-action="ShowDetail" asp-route-id="@instructor.Id" class="btn btn-primary">Show Details</a></td>
             <td><a asp-action="UpdateInstructor" asp-route-id="@instructor.Id" class="btn btn-primary">Update</a></td>
+            <td><a asp-action="DeleteInstructor" asp-route-id="@instructor.Id" class="btn btn-danger">Delete</a></td>
         </tr>
     }
 

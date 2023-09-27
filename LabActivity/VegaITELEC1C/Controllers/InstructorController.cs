@@ -82,7 +82,33 @@ namespace VegaITELEC1C.Controllers
 
             return View("Index", InstructorList);
         }
-        
+
+        [HttpGet]
+        public IActionResult DeleteInstructor(int id)
+        {
+
+            Instructor? instructor = InstructorList.FirstOrDefault(st => st.Id == id);
+
+            if (instructor != null)
+                return View(instructor);
+
+            return NotFound();
+
+        }
+        [HttpPost]
+        public IActionResult DeleteInstructor(Instructor InstructorChanges)
+        {
+            Instructor? instructor= InstructorList.FirstOrDefault(st => st.Id == InstructorChanges.Id);
+
+            if (instructor != null)
+            {
+                
+                InstructorList.Remove(instructor);
+            }
+
+            return View("Index", InstructorList);
+        }
+
     }
 
 }
