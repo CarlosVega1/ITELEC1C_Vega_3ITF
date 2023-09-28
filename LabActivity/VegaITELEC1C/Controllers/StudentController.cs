@@ -1,35 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VegaITELEC1C.Models;
+using VegaITELEC1C.Services;
 
 namespace VegaITELEC1C.Controllers
 {
     public class StudentController : Controller
     {
-        List<Student> StudentList = new List<Student>
-            {
-                new Student()
-                {
-                    Id= 1,FirstName = "Carlos",LastName = "Vega", IsRegular = IsRegular.Conditional, Course = Course.BSIT, AdmissionDate = DateTime.Parse("2020-04-20"), Email = "carlosvincent.vega.cics@ust.edu.ph"
-                },
-                new Student()
-                {
-                    Id= 2,FirstName = "Alena",LastName = "Varona", IsRegular = IsRegular.Irregular, Course = Course.OTHER, AdmissionDate = DateTime.Parse("2022-05-25"), Email = "alena.varona.cics@ust.edu.ph"
-                },
-                new Student()
-                {
-                    Id= 3,FirstName = "Shadow",LastName = "Garden", IsRegular = IsRegular.Regular, Course = Course.OTHER, AdmissionDate = DateTime.Parse("2020-08-12"), Email = "shadow.garden.cics@ust.edu.ph"
-                }
-            };
+        private readonly IMyFakeDataService _dummyData;
+
+        public StudentController(IMyFakeDataService dummyData)
+        {
+            _dummyData = dummyData;
+        }
         public IActionResult Index()
         {
 
-            return View(StudentList);
+            return View(_dummyData.StudentList);
         }
 
         public IActionResult ShowDetail(int id)
         {
             //Search for the student whose id matches the given id
-            Student? student = StudentList.FirstOrDefault(st => st.Id == id);
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == id);
 
             if (student != null)//was an student found?
                 return View(student);
@@ -46,15 +38,15 @@ namespace VegaITELEC1C.Controllers
         [HttpPost]
         public IActionResult AddStudent(Student newStudent)
         {
-            StudentList.Add(newStudent);
-            return View("Index", StudentList);
+            _dummyData.StudentList.Add(newStudent);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult UpdateStudent(int id)
         {
 
-            Student? student = StudentList.FirstOrDefault(st => st.Id == id);
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == id);
 
             if (student != null)
                 return View(student);
@@ -65,7 +57,7 @@ namespace VegaITELEC1C.Controllers
         [HttpPost]
         public IActionResult UpdateStudent(Student StudentChanges)
         {
-            Student? student = StudentList.FirstOrDefault(st => st.Id == StudentChanges.Id);
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == StudentChanges.Id);
 
             if (student != null)
             {
@@ -76,14 +68,14 @@ namespace VegaITELEC1C.Controllers
                 student.Email = StudentChanges.Email;
             }
 
-            return View("Index", StudentList);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult DeleteStudent(int id)
         {
 
-            Student? student = StudentList.FirstOrDefault(st => st.Id == id);
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == id);
 
             if (student != null)
                 return View(student);
@@ -94,7 +86,7 @@ namespace VegaITELEC1C.Controllers
         [HttpPost]
         public IActionResult DeleteStudent(Student StudentChanges)
         {
-            Student? student = StudentList.FirstOrDefault(st => st.Id == StudentChanges.Id);
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == StudentChanges.Id);
 
             if (student != null)
             {
@@ -103,10 +95,10 @@ namespace VegaITELEC1C.Controllers
                 //student.Course = StudentChanges.Course;
                 //student.AdmissionDate = StudentChanges.AdmissionDate;
                 //student.Email = StudentChanges.Email;
-                StudentList.Remove(student);
+                _dummyData.StudentList.Remove(student);
             }
 
-            return View("Index", StudentList);
+            return RedirectToAction("Index");
         }
 
 
