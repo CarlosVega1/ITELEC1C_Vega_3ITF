@@ -1,7 +1,10 @@
-﻿namespace VegaITELEC1C.Data
+﻿using Microsoft.AspNetCore.Identity;
+namespace VegaITELEC1C.Data
 {
-    public class User
+    public class User : IdentityUser
     {
+        public string? Firstname { get; set; }
+        public string? Lastname { get; set;}
 
     }
 }

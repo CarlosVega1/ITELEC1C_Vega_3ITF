@@ -12,7 +12,7 @@ namespace VegaITELEC1C.ViewModels
         [Required(ErrorMessage = "a password is required")]
         public string? Password { get; set; }
 
-        [Display(Name = "Remember me")]
+        [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
 }

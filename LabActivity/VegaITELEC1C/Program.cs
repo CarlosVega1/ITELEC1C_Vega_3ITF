@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using VegaITELEC1C.Data;
 using VegaITELEC1C.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,7 +7,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IMyFakeDataService, MyFakeDataService>();//dummy data service
-
+builder.Services.AddDbContext<AppDbContext>(
+     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+     );
+builder.Services.AddDefaultIdentity<User>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequiredLength = 8;
+    options.User.RequireUniqueEmail = true;
+}).AddEntityFrameworkStores<AppDbContext>();
 
 var app = builder.Build();
 
@@ -21,7 +35,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
