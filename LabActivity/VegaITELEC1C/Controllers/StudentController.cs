@@ -38,6 +38,14 @@ namespace VegaITELEC1C.Controllers
         [HttpPost]
         public IActionResult AddStudent(Student newStudent)
         {
+            if (Request.Form.Files.Count > 0) 
+            {
+                var file = Request.Form.Files[0];
+
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                newStudent.StudentProfilePhoto = ms.ToArray();
+              }
             _dummyData.StudentList.Add(newStudent);
             return RedirectToAction("Index");
         }

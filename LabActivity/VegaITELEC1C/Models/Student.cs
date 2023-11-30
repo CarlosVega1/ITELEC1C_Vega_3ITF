@@ -1,4 +1,6 @@
-﻿namespace VegaITELEC1C.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace VegaITELEC1C.Models
 {
     public enum IsRegular
     {
@@ -22,6 +24,7 @@
         public DateTime AdmissionDate { get; set; }
        
         public string Email { get; set; }
-
+        [Display(Name = "Profile Picture")]
+        public byte[]? StudentProfilePhoto { get; set; }
     }
 }

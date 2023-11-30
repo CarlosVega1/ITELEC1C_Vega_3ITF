@@ -47,7 +47,8 @@ namespace VegaITELEC1C.Models
         [Display(Name = "Rank")]
         public Rank Rank { get; set; }
 
-    
-    }
+       [Display(Name = "Profile Picture")]
+        public byte[]? InstructorProfilePhoto { get; set; }
+    } 
     }
 
